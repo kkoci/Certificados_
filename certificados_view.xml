@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	<!-- Certifications search view -->
+	   <record id="student_certificados_form" model="ir.ui.view">
+            <field name="name">certificados.result.form</field>
+            <field name="model">certificados.certificados</field>
+            <field name="arch" type="xml">
+                <form string="Introducir los datos" version="7.0">
+                    <sheet>
+                        <div class="oe_edit_only">
+                            <label for="Registro_Numero" class="oe_inline"/>
+                        </div>
+                        <h1>
+                            <field name="Registro_Numero" class="oe_inline"/>
+                        </h1>
+                        <group>
+                            <group>
+								<field name="item"/>
+                                <field name="Fecha_de_Emision"/>
+                                <field name="Fecha_de_Solicitud"/>
+                            </group>
+                            <group>
+                                <field name="venci_"/>
+                                <field name="vige_"/>
+								<field name="company_id" />
+                            </group>
+						</group>
+						<notebook>
+							<page string="Productos">
+								<field name="cert_ids">
+									<form string="Productos">
+										<field name="itom" />
+										<field name="product_id" />
+										<field name="Unidad_de_Medida" />
+										<field name="codigo_n" />
+										<field name="arandesc"/>
+										<field name="tec_esp" />
+										<field name="Cantidad"/> 
+										<field name="Precio_Unitario_Declarado"/>
+										<field name="Valor_En_Divisas"/>
+										<field name="Cantidad_Disponible" />
+										<field name="canti_cert"/>
+									</form>
+									<tree string="Productos">
+										<field name="itom" />
+										<field name="product_id" />
+										<field name="Unidad_de_Medida"  />
+										<field name="codigo_n" />
+										<field name="arandesc"/>
+										<field name="tec_esp" />
+										<field name="Cantidad"/> 
+										<field name="Precio_Unitario_Declarado"/>
+										<field name="Valor_En_Divisas"/>
+										<field name="Cantidad_Disponible" />
+										<field name="canti_cert"/>
+									</tree>
+								</field>
+								
+								<separator string="Observaciones"/>
+								<field name="descripcion"/>
+							</page>
+						</notebook>
+                    </sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div> 
+                </form>
+            </field>
+        </record>
+	<!-- Certification Action-->
+	<record id="view_certificados_tree" model="ir.ui.view">
+		<field name="name">certificados.tree</field>
+		<field name="model">certificados.certificados</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Certificados">
+			    <field name="item"/>
+				<field name="Registro_Numero" />
+				<field name="Fecha_de_Emision" />
+				<field name="Fecha_de_Solicitud" />
+				<field name="venci_" />
+				<field name="vige_" />
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="certificados_search">
+		<field name="name">certificados.search</field>
+		<field name="model">certificados.certificados</field>
+		<field name="type">search</field>
+		<field name="arch" type="xml">
+		<search string="Buscar Certificados" >
+			<field name="Fecha_de_Emision" string="Fecha_de_Emision" />
+			<field name="Registro_Numero" string="Registro_Numero" />
+			<field name="vige_" string="vige_" />
+		</search>
+		</field>
+	</record>
+	
+	<record id="action_certificados_certificados" model="ir.actions.act_window">
+		<field name="name">Certificados</field>
+		<field name="res_model">certificados.certificados</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		</record> 		
+		
+	<!-- <record model="ir.ui.view" id="purchase_order_form_inherit2">
+        <field name="name">purchase.order.form.inherit2</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="compra_grafibond.purchase_order_form"/>
+        <field name="arch" type="xml">
+			<field name="order_line">
+				<field name="product_uom" position="after">
+					<field name="cert_v" />
+				</field>
+			</field>
+		</field>
+    </record> -->
+	
+	<!--Student Menu-->
+	
+	<menuitem id="certificados_parent" name="Certificados" icon="terp-partner"/>
+	<menuitem id="menu_certificados_parent" name="Manejo de los certificados" parent="compra_grafibond.menu_procurement_management"></menuitem>
+	<menuitem action="action_certificados_certificados" id="Certificados" parent="compra_grafibond.menu_procurement_management" string="Result"/>
+	
+	</data>
+</openerp>
+				

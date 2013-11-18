@@ -1,0 +1,14 @@
+def _get_product_available_func(states, what):
+        def _product_available(self, cr, uid, ids, name, arg, context=None):
+            return {}.fromkeys(ids, 0.0)
+        return _product_available
+		if cert_v True in purchase.order.line:
+		_product_qty_available = _get_product_available_func(('done',), ('in', 'out'))
+		else:
+		continue
+		
+def kkoci(self, cr, uid, ids, name, arg, context=None):
+        res = {}
+        for record in self.browse(cr, uid, ids,context):
+            res[record.id] = record.Cantidad - record._product_qty_available
+        return res
